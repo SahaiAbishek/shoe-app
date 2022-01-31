@@ -3,3 +3,6 @@
 /react-shoe-app/.idea/
 /auth/package-lock.json
 /react-shoe-app/package-lock.json
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/shoe-app.iml
