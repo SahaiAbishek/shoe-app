@@ -13,9 +13,15 @@ npm i cookie-session @types/cookie-session
 
 #allow cors in auth app
 npm install cors --save
-#add below in app.js
+#add below in app.ts
 const cors = require('cors');
 const express = require('express');
 const app = express();
 app.use(cors());
 app.options('*', cors());
+
+### Create a new shoes API
+1) Create folder shoes
+2) cd shoes
+3) npm init -y
+4) npm install express cors axios nodemon

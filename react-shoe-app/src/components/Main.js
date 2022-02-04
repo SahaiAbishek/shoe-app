@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {Route, useHistory} from "react-router";
 import ViewShoes from "./ViewShoes";
 import AddShoe from "./AddShoe";
-import {useSelector, useDispatch} from "react-redux";
 import Login from "./login/Login";
 import axios from "axios";
 
@@ -39,7 +38,8 @@ function Main(props) {
                     'x-access-token': localStorage.getItem("token")
                 }
             }).catch((ex) => {
-                console.log("User is not logged in : " + ex)
+                console.log("User is not logged in : " + ex);
+                history.push("/")
             }).then((resp) => {
                 if (resp && resp.data && resp.data.currentUser)
                     setEmail(resp.data.currentUser.email);
@@ -59,7 +59,7 @@ function Main(props) {
                     exact path="/"
                     render={() => (
                         <div>
-                            <ViewShoes {...props}/>
+                            <ViewShoes {...props} email={email}/>
                         </div>
                     )}
                 />
@@ -67,7 +67,7 @@ function Main(props) {
                     path="/AddShoe"
                     render={({history}) => (
                         <div>
-                            <AddShoe {...props} onHistory={history}/>
+                            <AddShoe {...props} email={email} onHistory={history}/>
                         </div>
                     )}
                 />
