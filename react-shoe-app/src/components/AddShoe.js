@@ -19,10 +19,9 @@ function AddShoe(props) {
         const miles = event.target.elements.miles.value;
         const cost = event.target.elements.cost.value;
 
-        console.log(props.email);
         if (event.target.elements.brand.value) {
             axios.post('http://localhost:3002/api/users/shoe', {
-                "email": JSON.stringify(email),
+                "email": props.email,
                 "brand": brand,
                 "model": model,
                 "typeOfShoe": type,
