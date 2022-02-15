@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {useHistory} from "react-router";
 import moment from "moment";
 
-function AddShoe(email) {
+function AddShoe(props) {
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -19,6 +19,7 @@ function AddShoe(email) {
         const miles = event.target.elements.miles.value;
         const cost = event.target.elements.cost.value;
 
+        console.log(props.email);
         if (event.target.elements.brand.value) {
             axios.post('http://localhost:3002/api/users/shoe', {
                 "email": JSON.stringify(email),

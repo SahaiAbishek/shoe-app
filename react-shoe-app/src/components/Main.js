@@ -28,7 +28,7 @@ function Main(props) {
     }
 
     useEffect(() => {
-        getUser();
+        getUser().catch(console.error);
     })
 
     const getUser = async () => {
@@ -67,7 +67,7 @@ function Main(props) {
                     path="/AddShoe"
                     render={({history}) => (
                         <div>
-                            <AddShoe {...props} email={email} onHistory={history}/>
+                            <AddShoe email={email} onHistory={history}/>
                         </div>
                     )}
                 />
