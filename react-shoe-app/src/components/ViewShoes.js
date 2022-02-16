@@ -1,7 +1,8 @@
-import React, {Component, useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from "axios";
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
+import Shoe from './Shoe';
 
 function ViewShoes(email) {
 
@@ -10,7 +11,7 @@ function ViewShoes(email) {
 
     useEffect(() => {
         getUserShoes().catch(console.error);
-    },[])
+    }, [])
 
     const getUserShoes = async () => {
         if (localStorage.getItem("token")) {
@@ -29,6 +30,10 @@ function ViewShoes(email) {
 
     }
 
+    const getShoeDeatils = () => {
+        console.log("Getting shoe details");
+    }
+
     return (
         <div>
             <div className="col-md-12 text-center">
@@ -41,7 +46,12 @@ function ViewShoes(email) {
                     </button>
                 </Link>
             </div>
-            <div className="container">
+            <div className='container'>
+                {
+                    shoes?.map((shoe, index) => <Shoe key={index} shoe={shoe}/>)
+                }
+            </div>
+            {/* <div className="container">
                 <table className="table">
                     <thead>
                     <tr>
@@ -68,7 +78,7 @@ function ViewShoes(email) {
                     }
                     </tbody>
                 </table>
-            </div>
+            </div> */}
 
         </div>
     );
