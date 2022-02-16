@@ -33,10 +33,11 @@ function Login() {
     }
 
     return (
-        <div className="container py-5 h-100">
+        <div className="container">
+            <div className="p-3 mb-2 bg-primary text-white">Sign In</div>
             <form onSubmit={e => handleSubmit(e)}>
                 <div className="form-outline mb-4">
-                    <div className="col-2">
+                    <div >
                         <input
                             type="text"
                             name="email"
@@ -46,7 +47,7 @@ function Login() {
                     </div>
                 </div>
                 <div className="form-outline mb-4">
-                    <div className="col-2">
+                    <div >
                         <input
                             type="password"
                             name="password"

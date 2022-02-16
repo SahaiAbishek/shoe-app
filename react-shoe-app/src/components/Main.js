@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import {Link} from "react-router-dom";
-import {Route, useHistory} from "react-router";
+import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
+import { Route, useHistory } from "react-router";
 import ViewShoes from "./ViewShoes";
 import AddShoe from "./AddShoe";
 import Login from "./login/Login";
+import Signup from "./login/Signup";
 import axios from "axios";
 
 function Main(props) {
@@ -59,15 +60,15 @@ function Main(props) {
                     exact path="/"
                     render={() => (
                         <div>
-                            <ViewShoes {...props} email={email}/>
+                            <ViewShoes {...props} email={email} />
                         </div>
                     )}
                 />
                 <Route
                     path="/AddShoe"
-                    render={({history}) => (
+                    render={({ history }) => (
                         <div>
-                            <AddShoe email={email} onHistory={history}/>
+                            <AddShoe email={email} onHistory={history} />
                         </div>
                     )}
                 />
@@ -77,7 +78,15 @@ function Main(props) {
         return (
             <div className="container">
                 {header}
-                <Login/>
+                <div className="row">
+                    <div className="col">
+                        <Login />
+                    </div>
+
+                    <div className="col">
+                        <Signup />
+                    </div>
+                </div>
             </div>
 
         );
